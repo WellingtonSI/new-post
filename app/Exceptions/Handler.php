@@ -28,10 +28,5 @@ class Handler extends ExceptionHandler
         });
     }
 
-    public function render($request, Throwable $e)
-    {
-        return response()->json([
-			'message' => 'Não possível realizar essa ação, entre em contato com o suporte!',
-		], 500);
-    }
+    
 }

@@ -104,80 +104,31 @@
                     <div class="sidebar">
                         <div class="sidebar-wrapper">
                             <div class="logo">
-                                <a href="#" class="simple-text logo-mini">{{ _('WD') }}</a>
-                                <a href="#" class="simple-text logo-normal">{{ _('White Dashboard') }}</a>
+                                <a href="#" class="simple-text logo-normal">{{ _('Portal Notíciais') }}</a>
                             </div>
                             <ul class="nav">
-                                <li>
+                                <li >
                                     <a href="{{ route('home') }}">
                                         <i class="tim-icons icon-chart-pie-36"></i>
                                         <p>{{ _('Dashboard') }}</p>
                                     </a>
                                 </li>
+                                <li >
+                                    <a href="{{ route('profile.edit')  }}">
+                                        <i class="tim-icons icon-single-02"></i>
+                                        <p>{{ _('User Profile') }}</p>
+                                    </a>
+                                </li>
+                                <li >
+                                    <a href="/news">
+                                        <i class="tim-icons icon-single-copy-04"></i>
+                                        <p>{{ _('Notícias') }}</p>
+                                    </a>
+                                </li>
                                 <li>
-                                    <a data-toggle="collapse" href="#laravel-examples" aria-expanded="true">
-                                        <i class="fab fa-laravel" ></i>
-                                        <span class="nav-link-text" >{{ __('Laravel Examples') }}</span>
-                                        <b class="caret mt-1"></b>
-                                    </a>
-                    
-                                    <div class="collapse show" id="laravel-examples">
-                                        <ul class="nav pl-4">
-                                            <li >
-                                                <a href="{{ route('profile.edit')  }}">
-                                                    <i class="tim-icons icon-single-02"></i>
-                                                    <p>{{ _('User Profile') }}</p>
-                                                </a>
-                                            </li>
-                                            <li class="active" >
-                                                <a href="{{ route('user.index')  }}">
-                                                    <i class="tim-icons icon-bullet-list-67"></i>
-                                                    <p>{{ _('User Management') }}</p>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li >
-                                    <a href="{{ route('pages.icons') }}">
-                                        <i class="tim-icons icon-atom"></i>
-                                        <p>{{ _('Icons') }}</p>
-                                    </a>
-                                </li>
-                                <li >
-                                    <a href="{{ route('pages.maps') }}">
-                                        <i class="tim-icons icon-pin"></i>
-                                        <p>{{ _('Maps') }}</p>
-                                    </a>
-                                </li>
-                                <li >
-                                    <a href="{{ route('pages.notifications') }}">
-                                        <i class="tim-icons icon-bell-55"></i>
-                                        <p>{{ _('Notifications') }}</p>
-                                    </a>
-                                </li>
-                                <li >
-                                    <a href="{{ route('pages.tables') }}">
-                                        <i class="tim-icons icon-puzzle-10"></i>
-                                        <p>{{ _('Table List') }}</p>
-                                    </a>
-                                </li>
-                                <li >
-                                    <a href="{{ route('pages.typography') }}">
-                                        <i class="tim-icons icon-align-center"></i>
-                                        <p>{{ _('Typography') }}</p>
-                                    </a>
-                                </li>
-                                <li >
-                                    <a href="{{ route('pages.rtl') }}">
-                                        <i class="tim-icons icon-world"></i>
-                                        <p>{{ _('RTL Support') }}</p>
-                                    </a>
-                                </li>
-                                 <li class="bg-info">
-                                    <a href="{{ route('pages.upgrade') }}">
-                                        <i class="tim-icons icon-spaceship"></i>
-                                        <p>{{ _('Upgrade to PRO') }}</p>
+                                    <a href="user/management">
+                                        <i class="tim-icons icon-bullet-list-67"></i>
+                                        <p>{{ _('User Manag0ement') }}</p>
                                     </a>
                                 </li>
                             </ul>
@@ -350,74 +301,13 @@
                 </div>
 
                 <footer class="footer">
-<div class="container-fluid">
-    <ul class="nav">
-        <li class="nav-item">
-            <a href="https://creative-tim.com" target="blank" class="nav-link">
-                Creative Tim
-            </a>
-        </li>
-        <li class="nav-item">
-            <a href="https://updivision.com" target="blank" class="nav-link">
-                Updivision
-            </a>
-        </li>
-        <li class="nav-item">
-            <a href="#" class="nav-link">
-                About Us
-            </a>
-        </li>
-        <li class="nav-item">
-            <a href="#" class="nav-link">
-                Blog
-            </a>
-        </li>
-    </ul>
-    <div class="copyright">
-        © 2020 made with <i class="tim-icons icon-heart-2"></i> by
-        <a href="https://creative-tim.com" target="_blank">Creative Tim</a> &amp;
-        <a href="https://updivision.com" target="_blank">Updivision</a> for a better web.
-    </div>
-</div>
-</footer>
+
+                </footer>
             </div>
         </div>
     <form id="logout-form" action="{{route('logout')}}" method="POST" style="display: none;">
             @csrf
-            <div class="fixed-plugin">
-        <div class="dropdown show-dropdown">
-            <a href="#" data-toggle="dropdown">
-            <i class="fa fa-cog fa-2x"> </i>
-            </a>
-            <ul class="dropdown-menu">
-            <li class="header-title"> Sidebar Background</li>
-            <li class="adjustments-line">
-                <a href="javascript:void(0)" class="switch-trigger background-color">
-                <div class="badge-colors text-center">
-                    <span class="badge filter badge-primary active" data-color="primary"></span>
-                    <span class="badge filter badge-info" data-color="blue"></span>
-                    <span class="badge filter badge-success" data-color="green"></span>
-                </div>
-                <div class="clearfix"></div>
-                </a>
-            </li>
-            <li class="button-container">
-                <a href="https://www.creative-tim.com/product/white-dashboard-laravel" target="_blank" class="btn btn-primary btn-block btn-round">Download Now</a>
-                <a href="https://white-dashboard-laravel.creative-tim.com/docs/getting-started/introduction.html" target="_blank" class="btn btn-default btn-block btn-round">
-                Documentation
-                </a>
-            </li>
-            <li class="header-title">Thank you for 95 shares!</li>
-            <li class="button-container text-center">
-                <button id="twitter" class="btn btn-round btn-info"><i class="fab fa-twitter"></i> · 45</button>
-                <button id="facebook" class="btn btn-round btn-info"><i class="fab fa-facebook-f"></i> · 50</button>
-                <br>
-                <br>
-                <a class="github-button btn btn-round btn-default" href="https://github.com/creativetimofficial/white-dashboard-laravel" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star ntkme/github-buttons on GitHub">Star</a>
-            </li>
-            </ul>
-        </div>
-    </div>
+
     <script src="{{ asset('white') }}/js/core/jquery.min.js"></script>
     <script src="{{ asset('white') }}/js/core/popper.min.js"></script>
     <script src="{{ asset('white') }}/js/core/bootstrap.min.js"></script>

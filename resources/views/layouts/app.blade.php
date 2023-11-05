@@ -13,12 +13,14 @@
         <link rel="icon" type="image/png" href="{{ asset('white') }}/img/favicon.png">
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
-        <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
         <!-- Icons -->
         <link href="{{ asset('white') }}/css/nucleo-icons.css" rel="stylesheet" />
         <!-- CSS -->
         <link href="{{ asset('white') }}/css/white-dashboard.css?v=1.0.0" rel="stylesheet" />
         <link href="{{ asset('white') }}/css/theme.css" rel="stylesheet" />
+        <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.css" />
     </head>
     <body class="white-content {{ $class ?? '' }}">
         @auth()
@@ -50,44 +52,12 @@
                 </div>
             </div>
         @endauth
-        <div class="fixed-plugin">
-            <div class="dropdown show-dropdown">
-                <a href="#" data-toggle="dropdown">
-                <i class="fa fa-cog fa-2x"> </i>
-                </a>
-                <ul class="dropdown-menu">
-                <li class="header-title"> Sidebar Background</li>
-                <li class="adjustments-line">
-                    <a href="javascript:void(0)" class="switch-trigger background-color">
-                    <div class="badge-colors text-center">
-                        <span class="badge filter badge-primary active" data-color="primary"></span>
-                        <span class="badge filter badge-info" data-color="blue"></span>
-                        <span class="badge filter badge-success" data-color="green"></span>
-                    </div>
-                    <div class="clearfix"></div>
-                    </a>
-                </li>
-                <li class="button-container">
-                    <a href="https://www.creative-tim.com/product/white-dashboard-laravel" target="_blank" class="btn btn-primary btn-block btn-round">Download Now</a>
-                    <a href="https://white-dashboard-laravel.creative-tim.com/docs/getting-started/laravel-setup.html" target="_blank" class="btn btn-default btn-block btn-round">
-                    Documentation
-                    </a>
-                </li>
-                <li class="header-title">Thank you for 95 shares!</li>
-                <li class="button-container text-center">
-                    <button id="twitter" class="btn btn-round btn-info"><i class="fab fa-twitter"></i> &middot; 45</button>
-                    <button id="facebook" class="btn btn-round btn-info"><i class="fab fa-facebook-f"></i> &middot; 50</button>
-                    <br>
-                    <br>
-                    <a class="github-button" href="https://github.com/creativetimofficial/white-dashboard-laravel" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star ntkme/github-buttons on GitHub">Star</a>
-                </li>
-                </ul>
-            </div>
-        </div>
+
         <script src="{{ asset('white') }}/js/core/jquery.min.js"></script>
         <script src="{{ asset('white') }}/js/core/popper.min.js"></script>
         <script src="{{ asset('white') }}/js/core/bootstrap.min.js"></script>
         <script src="{{ asset('white') }}/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+        <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous"></script>
         <!--  Google Maps Plugin    -->
         <!-- Place this tag in your head or just before your close body tag. -->
         {{-- <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script> --}}
@@ -98,12 +68,16 @@
 
         <script src="{{ asset('white') }}/js/white-dashboard.min.js?v=1.0.0"></script>
         <script src="{{ asset('white') }}/js/theme.js"></script>
+        <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+        <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
 
         @stack('js')
 
         <script>
             $(document).ready(function() {
+                @yield('scripts')
                 $().ready(function() {
+
                     $sidebar = $('.sidebar');
                     $navbar = $('.navbar');
                     $main_panel = $('.main-panel');
@@ -204,8 +178,12 @@
                         $('body').removeClass('white-content');
                     });
                 });
+
+            
             });
+            
         </script>
+      
         @stack('js')
     </body>
 </html>

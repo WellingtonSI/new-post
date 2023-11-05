@@ -36,9 +36,20 @@ Route::group(['middleware' => 'auth'], function () {
 
 Route::group(['middleware' => 'auth'], function () {
 	Route::resource('user', 'App\Http\Controllers\UserController', ['except' => ['show']]);
+	Route::get('user/management', 'App\Http\Controllers\UserController@management');
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'App\Http\Controllers\ProfileController@edit']);
 	Route::put('profile', ['as' => 'profile.update', 'uses' => 'App\Http\Controllers\ProfileController@update']);
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\Controllers\ProfileController@password']);
+	 
+	Route::group(['prefix' => 'news'], function () {
+		Route::get('/', ['uses' => 'App\Http\Controllers\NewPostController@index']);
+		Route::get('/create', ['as' => 'news.create','uses' => 'App\Http\Controllers\NewPostController@create']);
+		Route::post('/store', ['uses' => 'App\Http\Controllers\NewPostController@store']);
+		Route::get('/{id}/edit', ['uses' => 'App\Http\Controllers\NewPostController@edit']);
+		Route::put('/update/{id}', ['uses' => 'App\Http\Controllers\NewPostController@update']);
+		Route::get('/{id}/delete/', ['uses' => 'App\Http\Controllers\NewPostController@delete']);
+		Route::get('/{id}/visualizar', ['uses' => 'App\Http\Controllers\NewPostController@show']);
+	});
 });
 
 Auth::routes();
@@ -55,10 +66,6 @@ Route::group(['middleware' => 'auth'], function () {
 		Route::get('upgrade', ['as' => 'pages.upgrade', 'uses' => 'App\Http\Controllers\PageController@upgrade']);
 });
 
-Route::group(['middleware' => 'auth'], function () {
-	Route::resource('user', 'App\Http\Controllers\UserController', ['except' => ['show']]);
-	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'App\Http\Controllers\ProfileController@edit']);
-	Route::put('profile', ['as' => 'profile.update', 'uses' => 'App\Http\Controllers\ProfileController@update']);
-	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\Controllers\ProfileController@password']);
-});
+
+
 

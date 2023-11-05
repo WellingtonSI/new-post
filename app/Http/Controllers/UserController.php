@@ -48,6 +48,11 @@ class UserController extends Controller
         return response()->json(['message'=>'Usuário excluído com sucesso!'],200);
     }
 
+    public function management(){
+
+        return view('users.index');
+    }
+
     public function show(){
         $users = User::get();
 
