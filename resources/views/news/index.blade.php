@@ -58,7 +58,7 @@
                       <a href="/news/{{$newPost->id}}/delete" class="btn btn-danger" title="Excluír" data-toggle="tooltip">
                         <i class="tim-icons icon-trash-simple"></i>
                       </a>
-                  </div>'
+                  </div>
                   </td>
                 </tr>
               @endforeach

@@ -35,7 +35,10 @@ Route::group(['middleware' => 'auth'], function () {
 });
 
 Route::group(['middleware' => 'auth'], function () {
+	Route::post('user/store', ['uses' =>'App\Http\Controllers\UserController@store']);
 	Route::resource('user', 'App\Http\Controllers\UserController', ['except' => ['show']]);
+	Route::get('user/create', 'App\Http\Controllers\UserController@create');
+
 	Route::get('user/management', 'App\Http\Controllers\UserController@management');
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'App\Http\Controllers\ProfileController@edit']);
 	Route::put('profile', ['as' => 'profile.update', 'uses' => 'App\Http\Controllers\ProfileController@update']);
