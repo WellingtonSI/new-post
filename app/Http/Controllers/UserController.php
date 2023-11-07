@@ -27,6 +27,16 @@ class UserController extends Controller
 
         return view('users.create');
     }
+    public function edit(int $id){
+        try{
+            $user = User::FindOrFail($id);
+
+            return view('users.edit', ['user' => $user]);
+         } catch (\Exception  $errors) {
+            Session::flash('message', 'Não foi possível acessar a página de edição de usuário!');
+         }
+        
+    }
     public function store(Request $request){
      
         try{
@@ -40,7 +50,7 @@ class UserController extends Controller
             Session::flash('message', 'Usuário criado com sucesso!');
             return Redirect::to("/user/management");
          } catch (\Exception  $errors) {
-            Session::flash('message', 'Não foi possível criar o usuário!'.$errors);
+            Session::flash('message', 'Não foi possível criar o usuário!');
             return back()->withInput();
          }
          
@@ -49,22 +59,29 @@ class UserController extends Controller
     }
     public function update(UserRequest $request, int $id){
 
-        $user = User::findOrFail($id);
-        $user->update($request->all());
-
-        return response()->json(['message'=>'Usuário atualizado com sucesso!'],200);
+        try{
+            $user = User::findOrFail($id);
+            $user->update($request->all());
+   
+            Session::flash('message', 'Usuário atualizado com sucesso!');
+            return Redirect::to("/user/management");
+         } catch (\Exception  $errors) {
+            Session::flash('message', 'Não foi possível criar o usuário!');
+            return back()->withInput();
+         }
+        
     }
 
     public function delete(int $id){
-        
-        $user = User::find($id);
-
-        if(is_null($user)){
-            return response()->json(['message'=>'Não foi possível encontrar nenhum usuário com esse id'],422);
-        }
-        
-        $user->delete();
-        return response()->json(['message'=>'Usuário excluído com sucesso!'],200);
+        try{
+            $user = User::findOrFail($id);
+            $user->delete();
+   
+            Session::flash('message', 'Usuário excluído com sucesso!');
+            return Redirect::to("/user/management");
+         } catch (\Exception  $errors) {
+            Session::flash('message', 'Não foi possível excluir o usuário!');
+         }
     }
 
     public function management(){
