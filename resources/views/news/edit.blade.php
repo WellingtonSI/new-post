@@ -20,11 +20,11 @@
               @method('PUT')
               <div class="mb-3">
                   <label for="title" class="form-label">Título da Notícia</label>
-                  <input type="text" class="form-control" id="title" name="title" value={{$newPost->title}}>
+                  <input type="text" class="form-control" id="title" name="title" value="{{$newPost->title}}">
               </div>
               <div class="mb-3">
                   <label for="title" class="form-label">Resumo</label>
-                  <input type="text" class="form-control" id="summary" name="summary" value={{$newPost->summary}}>
+                  <input type="text" class="form-control" id="summary" name="summary" value="{{$newPost->summary}}">
               </div>
               <div class="mb-3">
                   <label for="textoNoticia" class="form-label">Texto da Notícia</label>

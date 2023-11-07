@@ -34,7 +34,7 @@
                                 <tr>
                                     <td>{{$user->name}}</td>
                                     <td>{{$user->email}}</td>
-                                    <td>{{$user->created_at}}</td>
+                                    <td>{{date('d/m/Y H:i', strtotime($user->created_at))}}</td>
                                     <td>
                                         <div class="btn-group btn-group-sm">
                                             <a href="/user/{{$user->id}}/edit" class="btn btn-info" title="Alterar" data-toggle="tooltip">

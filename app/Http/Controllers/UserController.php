@@ -37,7 +37,7 @@ class UserController extends Controller
          }
         
     }
-    public function store(Request $request){
+    public function store(UserRequest $request){
      
         try{
             $password = Hash::make($request->password);

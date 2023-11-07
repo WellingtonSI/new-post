@@ -10,17 +10,16 @@
                     <p>{{ _('Dashboard') }}</p>
                 </a>
             </li>
-            <li @if ($pageSlug == 'profile') class="active " @endif>
-                <a href="{{ route('profile.edit')  }}">
-                    <i class="tim-icons icon-single-02"></i>
-                    <p>{{ _('User Profile') }}</p>
-                </a>
-            </li>
-
             <li @if ($pageSlug == 'news-post') class="active " @endif>
                 <a href="/news">
                     <i class="tim-icons icon-single-copy-04"></i>
                     <p>{{ _('Notícias') }}</p>
+                </a>
+            </li>
+            <li @if ($pageSlug == 'profile') class="active " @endif>
+                <a href="{{ route('profile.edit')  }}">
+                    <i class="tim-icons icon-single-02"></i>
+                    <p>{{ _('Perfil') }}</p>
                 </a>
             </li>
             @if(auth()->user()->profiles()
@@ -29,7 +28,7 @@
                 <li @if ($pageSlug == 'users') class="active " @endif>
                     <a href="/user/management">
                         <i class="tim-icons icon-bullet-list-67"></i>
-                        <p>{{ _('User Manag0ement') }}</p>
+                        <p>{{ _('Gerencimanento de Usuário') }}</p>
                     </a>
                 </li>
             @endif

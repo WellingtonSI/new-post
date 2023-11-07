@@ -45,8 +45,8 @@
               @foreach($newPosts as $newPost)
                 <tr>
                   <td>{{$newPost->title}}</td>
-                  <td>{{$newPost->created_at}}</td>
-                  <td>{{$newPost->updated_at}}</td>
+                  <td>{{date('d/m/Y H:i', strtotime($newPost->created_at))}}</td>
+                  <td>{{date('d/m/Y H:i', strtotime($newPost->updated_at))}}</td>
                   <td>
                     <div class="btn-group btn-group-sm">
                       <a href="/news/{{$newPost->id}}/edit" class="btn btn-info" title="Alterar" data-toggle="tooltip">
