@@ -5,4 +5,8 @@ Desafio para criação de um portal de notícias com gerenciamento de usuários 
 # Tecnolgias 
 Utilização do framework Laravel para o backend.  
 Interface com White Dashboard Laravel FREE FRONTEND PRESET FOR LARAVEL.
- 
+
+# Imagens do projeto
+
+![Dashboard](./portal-news.jpeg)  
+![Notícias](./news.jpeg)  
