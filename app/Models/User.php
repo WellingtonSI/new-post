@@ -48,7 +48,8 @@ class User extends Authenticatable
         return $this->hasMany(NewPost::class);
     }
 
-    public function profile(){
-        
+    public function profiles(){
+        return $this->belongsToMany(Profile::class,'profile_users');
     }
+
 }

@@ -28,34 +28,33 @@ class NewPostController extends Controller
     }
 
     public function store(Request $request){
-        
         try{
            $user = auth()->user();
             NewPost::create([
                 'title' => $request->title,
+                'summary' => $request->summary,
                 'new_post' => $request->new_post,
                 'user_id' => $user->id
             ]); 
-  
-            
-            Session::flash('message', 'Notícia criada  com sucesso!');
+
+            Session::flash('message', 'Notícia criada com sucesso!');
             return Redirect::to("/news");
         } catch (\Exception  $errors) {
-            Session::flash('message', 'Não foi possível criar  a notícia! '.$errors);
+            Session::flash('message', 'Não foi possível criar a notícia!'.$errors);
             return back()->withInput();
         }
         
     }
 
     public function update(Request $request, int $id){
-
+        
         try{
             $newPost = NewPost::find($id);
             DB::transaction(function() use ($newPost,$request) {
                 $newPost->update($request->all());
             });
             
-            Session::flash('message', 'Notícia atualizada  com sucesso!');
+            Session::flash('message', 'Notícia atualizada com sucesso!');
             return Redirect::to("/news");
         } catch (\Exception  $errors) {
             Session::flash('message', 'Não foi possível atualizar a notícia!');
