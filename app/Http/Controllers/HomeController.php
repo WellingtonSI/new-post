@@ -21,6 +21,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('dashboard');
+        $user = auth()->user();
+
+        $newPosts = $user->newPosts()->orderBy('created_at', 'desc')->limit(5)->get();
+
+        return view('dashboard', ['newPosts' => $newPosts]);
     }
 }

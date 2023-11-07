@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Auth::routes();
@@ -36,6 +36,7 @@ Route::group(['middleware' => 'auth'], function () {
 
 Route::group(['middleware' => 'auth'], function () {
 	Route::post('user/store', ['uses' =>'App\Http\Controllers\UserController@store']);
+	Route::get('user/delete/{id}', ['uses' =>'App\Http\Controllers\UserController@delete']);
 	Route::resource('user', 'App\Http\Controllers\UserController', ['except' => ['show']]);
 	Route::get('user/create', 'App\Http\Controllers\UserController@create');
 

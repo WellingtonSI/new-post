@@ -79,7 +79,7 @@
                         </div>
                     </p>
                     <div class="card-description">
-                        {{ _('Do not be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...') }}
+                        {{ _('Ea galisum consequatur est accusamus commodi rem itaque quaerat eos molestiae esse qui quia expedita ut consequuntur obcaecati. Qui dolore deleniti et tenetur autem est quia consequatur.') }}
                     </div>
                 </div>
             </div>

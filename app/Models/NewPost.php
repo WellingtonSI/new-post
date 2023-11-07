@@ -9,5 +9,5 @@ class NewPost extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title','new_post','user_id'];
+    protected $fillable = ['title','summary','new_post','user_id'];
 }
